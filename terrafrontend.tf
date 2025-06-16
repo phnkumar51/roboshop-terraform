@@ -7,3 +7,12 @@ resource "aws_instance" "terrafrontend" {
     Name = "terrafrontend"
   }
 }
+
+
+resource "aws_route53_record" "terrafrontend" {
+  zone_id = "Z00597101WWGD8AB8PV95"
+  name    = "terrafrontend"
+  type    = "A"
+  ttl     = 10
+  records = [aws_instance.terrafrontend.private_ip]
+}

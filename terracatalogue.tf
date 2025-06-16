@@ -10,7 +10,7 @@ resource "aws_instance" "terracatalogue" {
 
 resource "aws_route53_record" "terracatalogue" {
   zone_id = "Z00597101WWGD8AB8PV95"
-  name    = "terrafrontend-dev"
+  name    = "terracatalogue-dev"
   type    = "A"
   ttl     = 10
   records = [aws_instance.terracatalogue.private_ip]
