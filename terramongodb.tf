@@ -7,3 +7,11 @@ resource "aws_instance" "terramongodb" {
     Name = "terramongodb"
   }
 }
+
+resource "aws_route53_record" "terramongodb" {
+  zone_id = "Z00597101WWGD8AB8PV95"
+  name    = "terramongodb-dev"
+  type    = "A"
+  ttl     = 10
+  records = [aws_instance.terramongodb.private_ip]
+}
