@@ -9,15 +9,18 @@ resource "aws_instance" "instances" {
   }
 
 }
-#
-#resource "aws_route53_record" "terracatalogue" {
-#  zone_id = "Z00597101WWGD8AB8PV95"
-#  name    = "terracatalogue-dev"
-#  type    = "A"
-#  ttl     = 10
-#  records = [aws_instance.terracatalogue.private_ip]
-#}
-#
+
+resource "aws_route53_record" "records" {
+  count = length(var.instances)
+  zone_id = var.zone_id
+  name    = "${var.instances[count.index]}-${var.env}"
+  type    = "A"
+  ttl     = 10
+  records = [aws_instance.instances[count.index].private_ip]
+}
+
+
+
 #resource "null_resource" "terracatalogue" {
 #  provisioner "remote-exec" {
 #
