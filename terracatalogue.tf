@@ -7,23 +7,7 @@ resource "aws_instance" "terracatalogue" {
     Name = "terracatalogue"
   }
 
-  provisioner "remote-exec" {
-
-    connection {
-      type     = "ssh"
-      user     = "ec2-user"
-      password = "DevOps321"
-      host     = self.public_ip
-    }
-
-    inline = [
-      "sudo pip3.11 install ansible",
-      "ansible-pull -i localhost, -u https://github.com/phnkumar51/roboshop-ansible roboshop.yml -e component_name=terracatalogue -e env=dev",
-    ]
-  }
 }
-
-
 
 resource "aws_route53_record" "terracatalogue" {
   zone_id = "Z00597101WWGD8AB8PV95"
@@ -33,17 +17,19 @@ resource "aws_route53_record" "terracatalogue" {
   records = [aws_instance.terracatalogue.private_ip]
 }
 
-#provisioner "remote-exec" {
+resource "null_resource" "terracatalogue" {
+  provisioner "remote-exec" {
 
- # connection {
-  #  type     = "ssh"
-   # user     = "ec2-user"
-    #password = "DevOps321"
-    #host     = self.public_ip
- # }
+    connection {
+      type     = "ssh"
+      user     = "ec2-user"
+      password = "DevOps321"
+      host     = aws_instance.terracatalogue.private_ip
+    }
 
-  #inline = [
- #   "pip3.11 install ansible",
- #   "ansible-pull -i localhost, -u https://github.com/phnkumar51/roboshop-shell1 roboshop.yml -e component_name=terracatalogue -e env -dev",
- # ]
-#}
+    inline = [
+      "sudo pip3.11 install ansible",
+      "ansible-pull -i localhost, -u https://github.com/phnkumar51/roboshop-ansible roboshop.yml -e component_name=terracatalogue -e env=dev",
+    ]
+  }
+}
