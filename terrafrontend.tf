@@ -18,7 +18,7 @@ resource "aws_instance" "terrafrontend" {
 
     inline = [
       "sudo pip3.11 install ansible",
-      "ansible-pull -i localhost, -u https://github.com/phnkumar51/roboshop-shell1 roboshop.yml -e component_name=terrafrontend -e env=dev",
+      "ansible-pull -i localhost, -u https://github.com/phnkumar51/roboshop-ansible roboshop.yml -e component_name=terrafrontend -e env=dev",
     ]
   }
 }
