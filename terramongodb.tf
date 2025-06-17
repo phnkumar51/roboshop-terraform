@@ -18,8 +18,8 @@ provisioner "remote-exec" {
   }
 
   inline = [
-    "pip3.11 install ansible",
-    "ansible-pull -i localhost, -u https://github.com/phnkumar51/roboshop-shell1 roboshop.yml -e component_name=terramongodb -e env -dev",
+    "sudo pip3.11 install ansible",
+    "ansible-pull -i localhost, -u https://github.com/phnkumar51/roboshop-shell1 roboshop.yml -e component_name=terramongodb -e env=dev",
   ]
 }
 }
