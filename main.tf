@@ -9,7 +9,7 @@ resource "aws_instance" "instances" {
   }
 
 }
-
+#
 resource "aws_route53_record" "records" {
   count = length(var.instances)
   zone_id = var.zone_id

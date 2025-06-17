@@ -20,7 +20,7 @@ variable "instances" {
 variable "zone_id" {
   default = "Z00597101WWGD8AB8PV95"
 }
-
+#
 variable "env" {
   default = "dev"
 }
