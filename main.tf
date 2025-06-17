@@ -20,20 +20,3 @@ resource "aws_route53_record" "records" {
 }
 
 
-
-#resource "null_resource" "terracatalogue" {
-#  provisioner "remote-exec" {
-#
-#    connection {
-#      type     = "ssh"
-#      user     = "ec2-user"
-#      password = "DevOps321"
-#      host     = aws_instance.terracatalogue.private_ip
-#    }
-#
-#    inline = [
-#      "sudo pip3.11 install ansible",
-#      "ansible-pull -i localhost, -u https://github.com/phnkumar51/roboshop-ansible roboshop.yml -e component_name=terracatalogue -e env=dev",
-#    ]
-#  }
-#}
