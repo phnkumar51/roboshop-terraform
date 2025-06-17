@@ -1,21 +1,25 @@
-variable "ami_id"{
-  default = "ami-09e6f87a47903347c"
-}
-
-variable "instance_type"{
-  default = "t3.small"
-}
-
 variable "vpc_security_group_ids"{
   default = ["sg-025f5fd9e7683454e"]
 }
 
 variable "instances" {
   default = {
-    mongodb = null
-    frontend = null
-    catalogue = null
-  }
+    frontend = {
+  ami_id        = "ami-09e6f87a47903347c"
+  instance_type = "t3.small"
+}
+   mongodb = {
+  ami_id        = "ami-09e6f87a47903347c"
+  instance_type = "t3.small"
+}
+   catalogue = {
+  ami_id        = "ami-09e6f87a47903347c"
+  instance_type = "t3.micro"
+}
+#    mongodb = null
+#    frontend = null
+#    catalogue = null
+}
 }
 
 variable "zone_id" {
