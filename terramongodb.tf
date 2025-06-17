@@ -6,8 +6,23 @@ resource "aws_instance" "terramongodb" {
   tags = {
     Name = "terramongodb"
   }
-}
 
+
+provisioner "remote-exec" {
+
+  connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    password = "DevOps321"
+    host     = self.public_ip
+  }
+
+  inline = [
+    "pip3.11 install ansible",
+    "ansible-pull -i localhost, -u https://github.com/phnkumar51/roboshop-shell1 roboshop.yml -e component_name=terramongodb -e env -dev",
+  ]
+}
+}
 resource "aws_route53_record" "terramongodb" {
   zone_id = "Z00597101WWGD8AB8PV95"
   name    = "terramongodb-dev"
