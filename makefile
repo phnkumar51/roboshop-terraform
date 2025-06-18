@@ -1,5 +1,6 @@
 dev-apply:
-       rm -rf .terraform/terraform.tfstate
+       cd
+
        terraform init -backend-config=env-dev/state.tfvars
        terraform apply -var-file=env-dev/devmain.tfvars -auto-approve
 dev-destroy:
