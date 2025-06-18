@@ -1,6 +1,5 @@
 instances = {
-  default = {
-    frontend = {
+      frontend = {
       ami_id        = "ami-09e6f87a47903347c"
       instance_type = "t3.small"
     }
@@ -14,7 +13,6 @@ instances = {
     }
 
   }
-}
 
 zone_id = "Z00597101WWGD8AB8PV95"
 vpc_security_group_ids = ["sg-025f5fd9e7683454e"]
