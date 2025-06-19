@@ -12,6 +12,46 @@ instances = {
       instance_type = "t3.micro"
     }
 
+    redis = {
+    ami_id        = "ami-09e6f87a47903347c"
+    instance_type = "t3.micro"
+  }
+
+  user = {
+    ami_id        = "ami-09e6f87a47903347c"
+    instance_type = "t3.micro"
+  }
+
+  cart = {
+    ami_id        = "ami-09e6f87a47903347c"
+    instance_type = "t3.micro"
+  }
+
+  mysql= {
+    ami_id        = "ami-09e6f87a47903347c"
+    instance_type = "t3.micro"
+  }
+
+  shipping = {
+    ami_id        = "ami-09e6f87a47903347c"
+    instance_type = "t3.micro"
+  }
+
+  rabbitmq = {
+    ami_id        = "ami-09e6f87a47903347c"
+    instance_type = "t3.micro"
+  }
+
+  payment = {
+    ami_id        = "ami-09e6f87a47903347c"
+    instance_type = "t3.micro"
+  }
+
+  dispatch = {
+    ami_id        = "ami-09e6f87a47903347c"
+    instance_type = "t3.micro"
+  }
+
   }
 
 zone_id = "Z00597101WWGD8AB8PV95"
